@@ -1,17 +1,16 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-*_isupper - checks if a  character is uppercase or not
-*@c: character to be tested
-*Return: 1 whether it is, 0 otherwise
-*/
-
-int _isupper(int c)
+ * _isdigit -  checks for checks for a digit (0 through 9).
+ * @c: c -  Variable
+ * Return: Always 0.
+ */
+int _isdigit(int c)
 {
-	if ((c >= 'A') && (c <= 'Z'))
+
+	if (c >= 48 && c <= 57)
 	{
 		return (1);
 	}
-
 	return (0);
 }
