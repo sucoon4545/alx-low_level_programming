@@ -1,48 +1,36 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
 
 /**
- * string_nconcat - function to concatnate strings with n bytes
- * @s1: destination for concatnation
- * @s2: source of string
- * @n: int type for size of byte
- * Return: pointer to new memory allocated
- */
-
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+  * _strdup - Duplicate a string
+  * @str: the string to duplicate
+  *
+  * Return: the string duplicated
+  */
+char *_strdup(char *str)
 {
-	int count, count1;
-	int sign = n;
-	char *ptr;
-	int len1, len2;
+	int a = 0, i = 1;
+	char *s;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-
-	for (len1 = 0; s1[len1] != '\0'; len1++)
-		;
-	for (len2 = 0; s2[len2] != '\0'; len2++)
-		;
-
-	if (sign >= len2)
-	{
-		sign = len2;
-		ptr = malloc(sizeof(char) * (len1 + len2 + 1));
-	}
-	else
-		ptr = malloc(sizeof(char) * (len1 + n + 1));
-	if (ptr == NULL)
+	if (str == NULL)
 		return (NULL);
-	for (count = 0; count < len1; count++)
+
+	while (str[i])
 	{
-		ptr[count] = s1[count];
+		i++;
 	}
-	for (count1 = 0; count1 < sign; count1++)
+
+	s = malloc((sizeof(char) * i) + 1);
+
+	if (s == NULL)
+		return (NULL);
+
+	while (a < i)
 	{
-		ptr[count++] = s2[count1];
+		s[a] = str[a];
+		a++;
 	}
-	ptr[count++] = '\0';
-	return (ptr);
+
+	s[a] = '\0';
+	return (s);
 }
